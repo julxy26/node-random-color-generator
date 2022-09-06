@@ -25,6 +25,11 @@ if (argv[2] === 'dark' && argv[3]) {
     hue: argv[3],
   });
   console.log(chalk.hex(`${colorCode}`)(`${hashString}`));
+} else if (argv[2]) {
+  let colorCode = randomColor({
+    hue: argv[2],
+  });
+  console.log(chalk.hex(`${colorCode}`)(`${hashString}`));
 } else {
   console.log(chalk.hex(`${colorCode}`)(`${hashString}`));
 }
