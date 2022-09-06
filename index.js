@@ -14,22 +14,22 @@ const hashString = `###############################
 ###############################`;
 
 if (argv[2] === 'dark' && argv[3]) {
-  let colorCode = randomColor({
+  colorCode = randomColor({
     luminosity: 'dark',
     hue: argv[3],
   });
-  console.log(chalk.hex(`${colorCode}`)(`${hashString}`));
-} else if (argv[2] === 'light') {
-  let colorCode = randomColor({
+  console.log(chalk.hex(colorCode)(hashString));
+} else if (argv[2] === 'light' && argv[3]) {
+  colorCode = randomColor({
     luminosity: 'light',
     hue: argv[3],
   });
-  console.log(chalk.hex(`${colorCode}`)(`${hashString}`));
+  console.log(chalk.hex(colorCode)(hashString));
 } else if (argv[2]) {
-  let colorCode = randomColor({
+  colorCode = randomColor({
     hue: argv[2],
   });
-  console.log(chalk.hex(`${colorCode}`)(`${hashString}`));
+  console.log(chalk.hex(colorCode)(hashString));
 } else {
-  console.log(chalk.hex(`${colorCode}`)(`${hashString}`));
+  console.log(chalk.hex(colorCode)(hashString));
 }
