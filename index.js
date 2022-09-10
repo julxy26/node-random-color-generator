@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import randomColor from 'randomcolor';
 
 let colorCode = randomColor();
+
 const hashString = `###############################
 ###############################
 ###############################
@@ -35,3 +36,10 @@ if (argv[2] === 'ask') {
 } else {
   console.log(chalk.hex(colorCode)(hashString));
 }
+
+// let width = 31;
+// let height = 9;
+
+// for (let i = 0; i < height / 3; i++) {
+//   console.log('#'.repeat(width));
+// }
