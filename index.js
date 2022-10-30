@@ -21,25 +21,16 @@ if (argv[2] === 'ask') {
     luminosity: 'dark',
     hue: argv[2],
   });
-  console.log(chalk.hex(colorCode)(hashString));
 } else if (argv[2] && argv[3] === 'light') {
   colorCode = randomColor({
     luminosity: 'light',
     hue: argv[2],
   });
-  console.log(chalk.hex(colorCode)(hashString));
 } else if (argv[2]) {
   colorCode = randomColor({
     hue: argv[2],
   });
-  console.log(chalk.hex(colorCode)(hashString));
 } else {
-  console.log(chalk.hex(colorCode)(hashString));
 }
 
-// let width = 31;
-// let height = 9;
-
-// for (let i = 0; i < height / 3; i++) {
-//   console.log('#'.repeat(width));
-// }
+console.log(chalk.hex(colorCode)(hashString));
