@@ -1,9 +1,10 @@
 import { argv } from 'node:process';
 import chalk from 'chalk';
+import promptSync from 'prompt-sync';
 import randomColor from 'randomcolor';
 
 let colorCode = randomColor();
-
+const prompt = promptSync();
 const width = 31;
 const height = 9;
 const hashRow = ('#'.repeat(width) + '\n').repeat(3);
@@ -20,8 +21,13 @@ const hashString = hashRow + hashGap + hashColorCode + hashGap + hashRow;
 
 function generateColor() {
   if (argv[2] === 'ask') {
-    console.log('What luminosity and hue would you like me to generate?');
-    return;
+    const promptInput = prompt(
+      'What hue and luminosity would you like? ',
+    ).split(' ');
+    colorCode = randomColor({
+      luminosity: promptInput[1],
+      hue: promptInput[0],
+    });
   } else if (argv[3] === 'dark') {
     colorCode = randomColor({
       luminosity: 'dark',
