@@ -7,7 +7,7 @@ let colorCode = randomColor();
 const prompt = promptSync();
 const width = 31;
 const height = 9;
-const hashRow = ('#'.repeat(width) + '\n').repeat(3);
+const hashRow = '#'.repeat(width);
 const hashGap = '#'.repeat(4) + ' '.repeat(width - 8) + '#'.repeat(4) + '\n';
 const hashColorCode =
   '#'.repeat(height / 3 + 1) +
@@ -17,7 +17,13 @@ const hashColorCode =
   '#'.repeat(height / 3 + 1) +
   '\n';
 
-const hashString = hashRow + hashGap + hashColorCode + hashGap + hashRow;
+const hashString =
+  (hashRow + '\n').repeat(3) +
+  hashGap +
+  hashColorCode +
+  hashGap +
+  (hashRow + '\n').repeat(2) +
+  hashRow;
 
 function generateColor() {
   if (argv[2] === 'ask') {
